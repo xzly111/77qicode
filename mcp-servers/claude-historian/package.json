@@ -1,0 +1,107 @@
+{
+  "name": "claude-historian-mcp",
+  "version": "1.0.6-beta.0",
+  "description": "An MCP server for conversation history search and retrieval in Claude Code",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "bin": {
+    "claude-historian-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist/",
+    ".claude/skills/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && npm run lint",
+    "prepublishOnly": "npm run build && npm run lint && npm run format:check",
+    "prepare": "husky || true"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "anthropic",
+    "llm",
+    "ai",
+    "ai-tools",
+    "ai-agent",
+    "history",
+    "search",
+    "conversation",
+    "conversation-history",
+    "session",
+    "context-retrieval",
+    "memory",
+    "productivity",
+    "npx",
+    "zero-install",
+    "cli",
+    "developer-tools",
+    "typescript",
+    "nodejs"
+  ],
+  "author": "Vvkmnn",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vvkmnn/claude-historian-mcp.git"
+  },
+  "homepage": "https://github.com/Vvkmnn/claude-historian-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/Vvkmnn/claude-historian-mcp/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Vvkmnn"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "zod": "^4.3.6"
+  },
+  "optionalDependencies": {
+    "level": "^10.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^25.0.6",
+    "eslint": "^10.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.4.2",
+    "semantic-release": "^25.0.2",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.18.0"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}
